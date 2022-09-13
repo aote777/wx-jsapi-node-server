@@ -1,6 +1,7 @@
 // express
 var express = require('express')
 const LRU = require('lru-cache')
+var cors = require('cors')
 var axios = require('axios')
 const cache = new LRU({
   max: 500,
@@ -12,6 +13,7 @@ const cache = new LRU({
   ttl: 7200 * 1000,
 })
 var app = express()
+app.use(cors())
 var appId = 'wx72894d0c0c93a739'
 var secret = '53a998c6e2008ff8919200f0d906b117'
 
